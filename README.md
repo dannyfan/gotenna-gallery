@@ -3,7 +3,7 @@ A gallery to view urls from a csv file.
 
 # 0. Clone repository
 ```
-git clone
+git clone https://github.com/dfan001/gotenna-gallery.git
 ```
 
 # 1. Set environment variables
@@ -13,12 +13,15 @@ mv env.example .env
 ```
 
 # 2. Install Dependencies
-Recommended to create a virtual environment to handle dependencies for python
+Recommended to create a virtual environment to handle dependencies for Python
 ```
 virtualenv -p python3 env
 source env/bin/activate
 pip install -r requirements.txt
+```
 
+Install dependencies for React
+```
 npm install
 ```
 
