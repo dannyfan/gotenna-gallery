@@ -1,11 +1,14 @@
+@import "../../styles/_variables"
+
 .Gallery
-    overflow-y: scroll
-    height: 500px
+    height: calc( 100% -  50px)
     position: relative
     display: flex
     flex-direction: column
+    background-color: #fff
 
     &-images
+        overflow-y: scroll
         display: flex
         flex-wrap: wrap
         width: 100%
@@ -19,4 +22,22 @@
         display: flex
         justify-content: space-around
         padding: 1em
-        background-color: #f1f1f1
+        background-color: $bg-black
+        color: #fff
+
+        label
+            align-self: center
+
+        input[type=number]
+            border-style: none
+            padding: 3px
+            margin: 0px 5px
+
+        &__btn 
+            background-color: $bg-purple
+            color: #fff
+            border-radius: 0px
+            border-style: none
+            padding: 10px
+            font-weight: bold
+            width: 100px

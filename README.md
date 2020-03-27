@@ -36,3 +36,6 @@ python manage.py runserver
 npm start
 ```
 A browser window will open up with the React application at http://localhost:3000.
+
+# Quirks
+1. On large screen images will not be able to load when scrolling to bottom as a scrollbar wouldn't appear on those with the current styles. So that onscroll handler will not execute.

@@ -68,7 +68,7 @@ class Gallery extends React.Component {
         const { urls } = this.state;
 
         return (
-            <div className="Gallery" onScroll={this.handleScroll}>
+            <div className="Gallery">
                 <div className="Gallery-filters">
                     <label>
                         Width :
@@ -97,9 +97,9 @@ class Gallery extends React.Component {
                             onChange={this.handleChange}
                         />
                     </label>
-                    <button onClick={this.getImages}>Filter</button>
+                    <button className="Gallery-filters__btn" onClick={this.getImages}>Filter</button>
                 </div>
-                <div class="Gallery-images">
+                <div className="Gallery-images" onScroll={this.handleScroll}>
                     {urls.map(url => (
                         <img
                             src={url}
