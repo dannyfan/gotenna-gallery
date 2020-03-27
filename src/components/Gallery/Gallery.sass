@@ -2,9 +2,18 @@
     overflow-y: scroll
     height: 500px
     position: relative
+    display: flex
+    flex-direction: column
+
+    &-images
+        display: flex
+        flex-wrap: wrap
+        width: 100%
+        justify-content: center
 
     &-item
         margin: 10px
+        align-self: center
 
     &-filters
         display: flex

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Gallery.sass";
 
-const API = process.env.REACT_APP_API_SERVER
+const API = process.env.REACT_APP_API_SERVER;
 
 class Gallery extends React.Component {
     constructor(props) {
@@ -16,8 +16,6 @@ class Gallery extends React.Component {
     }
 
     componentDidMount() {
-        console.log(process.env);
-        console.log(API);
         this.getImages();
     }
 
@@ -26,46 +24,45 @@ class Gallery extends React.Component {
             e.target.scrollHeight - e.target.scrollTop ===
             e.target.clientHeight;
         if (bottom) {
-            const QUERY = `?start=${this.state.urls.length}&${this.createQueryParams()}`;
+            const QUERY = `?start=${
+                this.state.urls.length
+            }&${this.createQueryParams()}`;
             fetch(API + QUERY)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
-                    this.setState({ urls: this.state.urls.concat(data) })
-                }
-                );
+                    this.setState({ urls: this.state.urls.concat(data) });
+                });
         }
     };
 
     createQueryParams = () => {
         const params = {
-            width : this.state.width,
-            height : this.state.height,
-            grayscale : this.state.grayscale
-        }
-        let queryString = '';
+            width: this.state.width,
+            height: this.state.height,
+            grayscale: this.state.grayscale
+        };
+        let queryString = "";
         for (let [key, value] of Object.entries(params)) {
             if (value) {
-                queryString += key ? `${key}=${value}&` : '';
+                queryString += key ? `${key}=${value}&` : "";
             }
         }
-        queryString = queryString.replace(/&$/,'');
+        queryString = queryString.replace(/&$/, "");
         return queryString;
     };
 
     getImages = () => {
         const QUERY = this.createQueryParams();
-        console.log(QUERY);
-        fetch(API + '?' + QUERY)
+        fetch(API + "?" + QUERY)
             .then(response => response.json())
             .then(data => this.setState({ urls: data }));
     };
 
-    handleChange = (e) => {
+    handleChange = e => {
         const name = e.target.name;
-        const value = name === 'grayscale' ? e.target.checked : e.target.value;
-        this.setState({ [name] : value });
-    }
+        const value = name === "grayscale" ? e.target.checked : e.target.value;
+        this.setState({ [name]: value });
+    };
 
     render() {
         const { urls } = this.state;
@@ -102,9 +99,16 @@ class Gallery extends React.Component {
                     </label>
                     <button onClick={this.getImages}>Filter</button>
                 </div>
-                {urls.map(url => (
-                    <img src={url} key={url} className="Gallery-item" alt="" />
-                ))}
+                <div class="Gallery-images">
+                    {urls.map(url => (
+                        <img
+                            src={url}
+                            key={url}
+                            className="Gallery-item"
+                            alt=""
+                        />
+                    ))}
+                </div>
             </div>
         );
     }
