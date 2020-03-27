@@ -1,5 +1,6 @@
 # GoTenna Photo Viewer Applica)on
 A gallery to view urls from a csv file.
+CSV file can be downloaded from https://pastebin.com/BmA8B0tY
 
 # 0. Clone repository
 ```
@@ -15,8 +16,8 @@ mv env.example .env
 # 2. Install Dependencies
 Recommended to create a virtual environment to handle dependencies for Python
 ```
-virtualenv -p python3 env
-source env/bin/activate
+virtualenv -p python3 venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
