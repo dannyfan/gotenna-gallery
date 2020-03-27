@@ -1,4 +1,4 @@
-# GoTenna Photo Viewer Applica)on
+# GoTenna Photo Viewer Application
 A gallery to view urls from a csv file.
 CSV file can be downloaded from https://pastebin.com/BmA8B0tY
 
